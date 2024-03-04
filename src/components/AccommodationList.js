@@ -160,6 +160,11 @@ const AccommodationList = () => {
                   </ul>
                 </div>
               )}
+              <div>
+                 {filters.intervalStartFilter && filters.intervalEndFilter && (
+                 <h3>Ukupno: {accommodation.totalAccommodationPrice} €</h3>
+              )}
+              </div>     
           </li>
         ))}
       </ul>

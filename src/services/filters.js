@@ -1,5 +1,7 @@
+import { calculateTotalPrice } from './cijena';
+
 export const filterAccommodations = (accommodations, filters) => {
-  
+
     return accommodations.filter((accommodation) => {     
       const {
         capacityFilter,
@@ -55,6 +57,7 @@ export const filterAccommodations = (accommodations, filters) => {
 
           if (startDate >= intervalStart && endDate <= intervalEnd) {
             hasAvailableDates = true;
+            //totalAccommodationPrice = calculateTotalPrice(accommodation, startDate, endDate);
             break;
           }
         }
@@ -62,6 +65,8 @@ export const filterAccommodations = (accommodations, filters) => {
         if (!hasAvailableDates) {
           return false;
         }
+
+        accommodation.totalAccommodationPrice = calculateTotalPrice(accommodation, startDate, endDate);
       }
 
 
