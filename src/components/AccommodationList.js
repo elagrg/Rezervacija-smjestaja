@@ -3,6 +3,7 @@ import { fetchAccommodationData } from '../services/api';
 import { filterAccommodations } from '../services/filters';
 
 const AccommodationList = () => {
+  
   const [accommodations, setAccommodations] = useState([]);
   const [expandedAccommodation, setExpandedAccommodation] = useState(null);
 
@@ -14,6 +15,8 @@ const AccommodationList = () => {
     poolFilter: false,
     wifiFilter: false,
     tvFilter: false,
+    intervalStartFilter: null,
+    intervalEndFilter: null,
   });
   
   useEffect(() => {
@@ -42,7 +45,7 @@ const AccommodationList = () => {
         <label>
           Kapacitet:
           <input
-            type="number"
+            type='number'
             value={filters.capacityFilter}
             onChange={(e) => handleFilterChange('capacityFilter', e.target.value)}
           />
@@ -51,7 +54,7 @@ const AccommodationList = () => {
         <div>
           <label>Klimatizacija:</label>
           <input
-            type="checkbox"
+            type='checkbox'
             checked={filters.airConditioningFilter}
             onChange={() => handleFilterChange('airConditioningFilter', !filters.airConditioningFilter)}
           />
@@ -60,7 +63,7 @@ const AccommodationList = () => {
         <div>
           <label>Parking:</label>
           <input
-            type="checkbox"
+            type='checkbox'
             checked={filters.parkingSpaceFilter}
             onChange={() => handleFilterChange('parkingSpaceFilter', !filters.parkingSpaceFilter)}
           />
@@ -69,7 +72,7 @@ const AccommodationList = () => {
         <div>
           <label>Kućni ljubimci:</label>
           <input
-            type="checkbox"
+            type='checkbox'
             checked={filters.petsFilter}
             onChange={() => handleFilterChange('petsFilter', !filters.petsFilter)}
           />
@@ -78,7 +81,7 @@ const AccommodationList = () => {
         <div>
           <label>Bazen:</label>
           <input
-            type="checkbox"
+            type='checkbox'
             checked={filters.poolFilter}
             onChange={() => handleFilterChange('poolFilter', !filters.poolFilter)}
           />
@@ -87,7 +90,7 @@ const AccommodationList = () => {
         <div>
           <label>Wifi:</label>
           <input
-            type="checkbox"
+            type='checkbox'
             checked={filters.wifiFilter}
             onChange={() => handleFilterChange('wifiFilter', !filters.wifiFilter)}
           />
@@ -96,10 +99,30 @@ const AccommodationList = () => {
         <div>
           <label>Tv:</label>
           <input
-            type="checkbox"
+            type='checkbox'
             checked={filters.tvFilter}
             onChange={() => handleFilterChange('tvFilter', !filters.tvFilter)}
           />
+        </div>
+
+        <div>
+          <label>
+          Datum boravka:
+            <input
+              type='date'
+              value={filters.intervalStartFilter || ''}
+              onChange={(e) => handleFilterChange('intervalStartFilter', e.target.value)}
+              min='2024-01-01'
+              max='2024-12-31'
+            />
+            <input
+              type='date'
+              value={filters.intervalEndFilter || ''}
+              onChange={(e) => handleFilterChange('intervalEndFilter', e.target.value)}
+              min='2024-01-01'
+              max='2024-12-31'
+            />
+          </label>
         </div>
       </div>
       <ul>

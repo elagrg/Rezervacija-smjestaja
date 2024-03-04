@@ -1,4 +1,5 @@
 export const filterAccommodations = (accommodations, filters) => {
+  
     return accommodations.filter((accommodation) => {     
       const {
         capacityFilter,
@@ -8,6 +9,8 @@ export const filterAccommodations = (accommodations, filters) => {
         poolFilter,
         wifiFilter,
         tvFilter,
+        intervalStartFilter,
+        intervalEndFilter,
       } = filters;
         
 
@@ -38,7 +41,30 @@ export const filterAccommodations = (accommodations, filters) => {
       if (tvFilter && !accommodation.amenities.tv) {
         return false;
       }
-  
+
+      if (intervalStartFilter && intervalEndFilter) {
+
+        const startDate = new Date(intervalStartFilter);
+        const endDate = new Date(intervalEndFilter);
+
+        let hasAvailableDates = false;
+
+        for (let i = 0; i < accommodation.availableDates.length; i++) {
+          const intervalStart = new Date(accommodation.availableDates[i].intervalStart);
+          const intervalEnd = new Date(accommodation.availableDates[i].intervalEnd);
+
+          if (startDate >= intervalStart && endDate <= intervalEnd) {
+            hasAvailableDates = true;
+            break;
+          }
+        }
+    
+        if (!hasAvailableDates) {
+          return false;
+        }
+      }
+
+
       return true;
     });
   };
