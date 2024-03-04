@@ -135,7 +135,7 @@ const AccommodationList = () => {
               style={{ cursor: 'pointer' }}
             >
               <h2>{accommodation.title}</h2>
-              <img src={accommodation.image} alt={accommodation.title} />
+              <img src={accommodation.image} alt={accommodation.title} style={{ paddingRight: '10px' }}/>
             </div>
             <p>Kapacitet: {accommodation.capacity}</p>
             {accommodation.beachDistanceInMeters && (

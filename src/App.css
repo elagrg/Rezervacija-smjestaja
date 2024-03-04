@@ -46,6 +46,10 @@
     display: block;
   }
 
+  .accommodation-item {
+    padding-right: 10px; 
+  }
+
   .date-filter-container {
     display: flex;
     flex-direction: column; 
@@ -58,7 +62,7 @@
   .date-filter-container input {
     margin-bottom: 0px;
     flex-direction: row; 
-    width: 100%;
+    width: 80%;
   }
 }
 
