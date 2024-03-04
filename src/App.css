@@ -41,23 +41,23 @@
   img {
     max-width: 100%; 
     height: auto; 
-    margin-right: auto;
+    margin-right: 10px;
     margin-left: auto;
     display: block;
   }
 
   .date-filter-container {
     display: flex;
-    flex-direction: row; 
+    flex-direction: column; 
   }
 
   .date-filter-container label {
     margin-bottom: 5px;
-    flex-wrap: wrap;
   }
 
   .date-filter-container input {
-    margin-bottom: 5px;
+    margin-bottom: 0px;
+    flex-direction: row; 
   }
 }
 
