@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+
+@media only screen and (max-width: 600px) {
+  img {
+    max-width: 100%; 
+    height: auto; 
+  }
+
+  .date-filter-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+  }
+
+  .date-filter-container label {
+    margin-bottom: 5px;
+  }
+
+  .date-filter-container input {
+    margin-bottom: 0;
+  }
+}
+

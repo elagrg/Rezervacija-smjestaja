@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { fetchAccommodationData } from '../services/api';
 import { filterAccommodations } from '../services/filters';
+import '../App.css';
 
 const AccommodationList = () => {
   
@@ -105,11 +106,13 @@ const AccommodationList = () => {
           />
         </div>
 
-        <div>
-          <label>
+        <div className="date-filter-container">
+          <label htmlFor="start-date">
           Datum boravka:
+          </label>
             <input
               type='date'
+              id='start-date'
               value={filters.intervalStartFilter || ''}
               onChange={(e) => handleFilterChange('intervalStartFilter', e.target.value)}
               min='2024-01-01'
@@ -122,7 +125,6 @@ const AccommodationList = () => {
               min='2024-01-01'
               max='2024-12-31'
             />
-          </label>
         </div>
       </div>
       <ul>
