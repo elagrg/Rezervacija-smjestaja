@@ -42,7 +42,7 @@
     max-width: 100%; 
     height: auto; 
     margin-right: 10px;
-    margin-left: auto;
+    margin-left: 10px;
     display: block;
   }
 
@@ -58,6 +58,7 @@
   .date-filter-container input {
     margin-bottom: 0px;
     flex-direction: row; 
+    width: 100%;
   }
 }
 
