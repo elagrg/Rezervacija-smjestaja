@@ -39,7 +39,7 @@
 
 @media only screen and (max-width: 600px) {
   img {
-    max-width: 100%; 
+    max-width: 80%; 
     height: auto; 
     margin-right: 10px;
     margin-left: 10px;
@@ -62,7 +62,7 @@
   .date-filter-container input {
     margin-bottom: 0px;
     flex-direction: row; 
-    width: 80%;
+    width: 60%;
   }
 }
 
